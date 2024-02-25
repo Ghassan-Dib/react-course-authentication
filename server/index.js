@@ -4,15 +4,16 @@ import http from "http";
 import morgan from "morgan";
 import router from "./router.js";
 import mongoose from "mongoose";
+import cors from "cors";
 
 const app = express();
 
 // DB setup
-// mongoose.connect("mongodb://localhost:auth/auth");
 mongoose.connect("mongodb://localhost/auth");
 
 // App setup
-app.use(morgan("combined")); // logging framework
+app.use(morgan("combined"));
+app.use(cors());
 app.use(bodyParser.json({ type: "*/*" })); // parse every request to json
 router(app);
 

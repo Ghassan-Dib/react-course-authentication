@@ -7,9 +7,11 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createStore } from "redux";
 import reducers from "./reducers";
+import { applyMiddleware } from "redux";
+import { thunk } from "redux-thunk";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const store = createStore(reducers, {});
+const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 root.render(
   <React.StrictMode>
