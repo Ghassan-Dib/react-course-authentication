@@ -28,3 +28,7 @@ export const signup = (req, res, next) => {
       return next(err);
     });
 };
+
+export const signin = (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) });
+};
