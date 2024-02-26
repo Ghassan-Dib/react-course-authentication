@@ -5,10 +5,10 @@ import { reduxForm, Field } from "redux-form";
 import * as actions from "../../actions";
 import { useNavigate } from "react-router-dom";
 
-const Signup = (props) => {
+const Signin = (props) => {
   const navigate = useNavigate();
   const onSubmit = (formProps) => {
-    props.signup(formProps, () => {
+    props.signin(formProps, () => {
       navigate("/feature");
     });
   };
@@ -28,7 +28,7 @@ const Signup = (props) => {
         />
       </fieldset>
       <div>{props.errorMessage}</div>
-      <button>Sign up</button>
+      <button>Sign in</button>
     </form>
   );
 };
@@ -39,5 +39,5 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps, actions),
-  reduxForm({ form: "signup" })
-)(Signup);
+  reduxForm({ form: "signin" })
+)(Signin);
